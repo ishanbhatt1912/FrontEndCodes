@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html>
+
+<!--
+<div class="header">
+			<div class = "navbar">
+				<a href="mailto:ib68213n@pace.edu">Email Me!</a>
+				<a href = "Lab11ABhatt.html"> Assignment 12A </a>
+			</div>
+			<div class = "assignmentDetails">
+			Ishan Bhatt <BR>
+			Assignment 12B <BR>
+			IT 614 - Spring 2014 <BR>
+			Date: 25th April, 2017  
+			</div>
+			<BR>
+	</div>
+	-->
+	
+   <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+   <title>Maps</title>
+   <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+   <style type="text/css">
+		html { height: 100% }
+		body { height: 100%; margin: 0; padding: 0 ;text-align:center}
+		#mapCanvas { height: 100% }
+    </style>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmdfjDNtkJiAXGDlQroeChJO2dlvT8C6w&sensor=false">
+	</script>
+<script type="text/javascript">
+var center = new google.maps.LatLng(0 ,0);
+var myMap;
+  function initialize() {
+	var mapOptions = {
+    zoom: 2,
+    center: center,
+	mapTypeId: google.maps.MapTypeId.ROADMAP,
+	};
+	myMap = new google.maps.Map(document.getElementById("mapCanvas"), mapOptions);
+  }
+
+  function processResult(){
+	var location = document.getElementById('searchType').value;
+    var geocoder =  new google.maps.Geocoder();
+	geocoder.geocode( {
+	'address': location
+  },
+   function(results, status) {
+		console.log(results[0].formatted_address);
+		if (status == google.maps.GeocoderStatus.OK) {
+		var latLng = new google.maps.LatLng(results[0].geometry.location.lat(),results[0].geometry.location.lng());
+		var locationMarker = new google.maps.Marker({
+           position: latLng,
+           map:myMap,
+           animation:google.maps.Animation.DROP,
+
+         });
+         var SoLinfoWindow = new google.maps.InfoWindow({
+		content: results[0].formatted_address
+	});
+
+	google.maps.event.addListener(locationMarker, 'click', function() {
+	SoLinfoWindow.open(myMap,locationMarker);
+	});
+
+	} else {
+		alert("Something Went Wrong. Try again! " + status);
+	}
+	});
+}
+
+</script>
+
+ </head>
+
+<body onload="initialize()">
+	<h2>MAP - Scroll down to enter location</h2>
+	<form name="searchForm" method="GET" action="javascript:processResult()">
+			<div>
+				Enter a location: <input id="searchType" type="text">
+			    <input type="submit" value="Search" >
+			</div>
+		</form>
+		<BR>
+    <div id="mapCanvas" style="width: 100%; height: 80%;">map div</div>
+		
+
+</body>
+</html>
