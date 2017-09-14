@@ -1,0 +1,84 @@
+
+body {
+background-color: #AAAAAA;
+}
+
+#videobg { 
+position: absolute; 
+bottom: 0px; 
+right: 0px; 
+min-width: 100%; 
+min-height: 100%; 
+width: auto; 
+height: auto; 
+z-index: -1000; 
+overflow: hidden; }
+
+.header {
+	background-color:  #FFE9F9;
+	height: 60px;
+	display: block;
+	padding: 5px 15px 15px 15px;
+	margin: auto;
+	width: 72%;
+} 
+.navbar {
+display: block;
+float: left;
+margin-top: 20px;
+margin-right: 30px;
+}
+.assignmentDetails {
+display: block;
+font-size: 15px;
+float: right;
+margin-top: 0px;
+margin-right: 30px;
+}
+.navbar  a{
+font-size: 20px;
+font-weight: bold;
+color: #000000;
+padding: 10px 20px 10px 20px;
+background-color: #DDCCD9;
+border: 2px solid #BB433F;
+}
+
+
+
+#animate {
+    position: relative;
+    border; 1px solid green;
+    background: cyan;
+    width: 400px;
+    height: 50px;
+}
+.left{
+	 
+	 
+	 font-family: Georgia, "Times New Roman", Times, serif;
+	color:#ff4c4c;
+	border: 1px solid #4abc23;
+	font-size: 16px;
+}
+.right{
+	
+	
+	font-family: Georgia, "Times New Roman", Times, serif;
+	color:#ff1919;
+	border: 1px solid #4abc23;
+	font-size: 16px;
+}
+
+.wrapper {
+	  margin: auto;
+	 display: flex;
+    width: 700px;
+	height: 350px;
+    border: 1px solid black;
+}
+span{
+	width: 300px;
+	color:blue;
+	 font-size: 25px;
+}
