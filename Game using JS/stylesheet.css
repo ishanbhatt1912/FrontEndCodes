@@ -1,0 +1,230 @@
+@import url(http://weloveiconfonts.com/api/?family=brandico);
+
+[class*="brandico-"]:before {
+  font-family: 'brandico', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+.header{
+	text-align: center;
+}
+body {
+  background: blue;
+  font-family: "Arial", sans-serif;
+  min-height: 100%;
+}
+
+.content {
+  position: relative;
+  height: 100%;
+  min-height: 500px;
+  padding-bottom: 20px;
+}
+
+.game {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  min-height: 100%;
+  height: 100%;
+}
+
+@-webkit-keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+
+@keyframes matchAnim {
+  0% {
+    background: #bcffcc;
+  }
+  100% {
+    background: white;
+  }
+}
+.card {
+  float: left;
+  width: 16.66666%;
+  height: 25%;
+  padding: 5px;
+  text-align: center;
+  display: block;
+  -webkit-perspective: 500px;
+          perspective: 500px;
+  position: relative;
+  cursor: pointer;
+  z-index: 50;
+  -webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 800px) {
+  .card {
+    width: 25%;
+    height: 16.666%;
+  }
+}
+.card .inside {
+  width: 100%;
+  height: 100%;
+  display: block;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: .4s ease-in-out;
+  transition: .4s ease-in-out;
+  background: white;
+}
+.card .inside.picked, .card .inside.matched {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.card .inside.matched {
+  -webkit-animation: 1s matchAnim ease-in-out;
+          animation: 1s matchAnim ease-in-out;
+  -webkit-animation-delay: .4s;
+          animation-delay: .4s;
+}
+.card .front, .card .back {
+  border: 1px solid black;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+.card .front img, .card .back img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  max-height: 100%;
+}
+.card .front {
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+@media (max-width: 800px) {
+  .card .front {
+    padding: 5px;
+  }
+}
+@media (max-width: 800px) {
+  .card .back {
+    padding: 10px;
+  }
+}
+
+.modal-overlay {
+  display: none;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal {
+  display: none;
+  position: relative;
+  width: 500px;
+  height: 400px;
+  max-height: 90%;
+  max-width: 90%;
+  min-height: 380px;
+  margin: 0 auto;
+  background: white;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  padding: 30px 10px;
+}
+.modal .winner {
+  font-size: 75px;
+  text-align: center;
+  font-family: "Anton", sans-serif;
+  color: #abcd12;
+  text-shadow: 0px 3px 0 black;
+}
+@media (max-width: 480px) {
+  .modal .winner {
+    font-size: 50px;
+  }
+}
+.modal .restart {
+  font-family: "Anton", sans-serif;
+  margin: 32px auto;
+  padding: 22px 32px;
+  display: block;
+  font-size: 35px;
+  border: none;
+  background: #abcd12;
+  background: -webkit-linear-gradient(#4d4d4d, #222);
+  background: linear-gradient(#abcd12, #333);
+  border: 1px solid #111;
+  border-radius: 6px;
+  color: white;
+  text-shadow: 0px 1px 0 black;
+  cursor: pointer;
+}
+.modal .social {
+  text-align: center;
+  margin: 20px auto;
+}
+.modal .message {
+  text-align: center;
+}
+.modal .restart:hover {
+  background: -webkit-linear-gradient(#111, black);
+  background: linear-gradient(#111, black);
+}
+.modal .message a {
+  text-decoration: none;
+  color: #38bdf7;
+  font-weight: bold;
+}
+.modal .message a:hover {
+  border-bottom: 1px dotted #56c0eb;
+  color: #66b3cd;
+  
+}
+.modal .share-text {
+  margin: 10px auto;
+  text-align: center;
+}
+.modal .social li {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.modal .social li:last-child {
+  margin-right: 0;
+}
+.modal .social li a {
+  display: block;
+  line-height: 50px;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+footer {
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
+}
